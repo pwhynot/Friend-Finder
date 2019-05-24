@@ -48,7 +48,6 @@ module.exports = function(app) {
             };
         };
 
-        console.log(matches);
         res.json(matches);
 
     });
