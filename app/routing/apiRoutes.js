@@ -10,7 +10,7 @@ module.exports = function(app) {
     app.post("/api/friends", function(req, res){
         const matches = {
             "name": "none",
-            "photo": 'none'
+            "photo": "none"
         };
 
         function sum (array) {
