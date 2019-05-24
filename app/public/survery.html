@@ -123,6 +123,47 @@
                             </select>
     </div>
 
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Congratulations</h4>
+            </div>
+         <div class="modal-body">
+            </div>
+             <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="push"></div>
+	</div>
+  
+      <script type="text/javascript">
+          $('#submit').on('click', function(){
+              const newFriends = {
+                  'name': $('#name').val().trim(),
+                  'photo': $('#photo').val().trim(),
+                  'scores': [$('#q1').val(),$('#q2').val(),$('#q3').val(),$('#q4').val(),$('#q5').
+                  val(),$('#q6').val(),$('#q7').val(),$('#q8').val(),$('#q9').val(),$('#q10').val()]
+              };
+
+              const currentURL = window.location.origin;
+              $.post(currentURL+"/api/friends", newFriends, function(data){
+                  
+              })
+                  .done(function(data){
+                    $('.modal-body').append('<h1> New friend found!</h1>'+
+                        '<h3> '+data.name+ '</h3>'+
+                        '<img src="'+data.photo+'" width=300px>');
+                       $('#modal').modal('toggle');
+              });
+          })
+      </script>
+
     <footer class="footer">
         <div class="container">
           <p><a href="/app/data/friends.js">API Friends List</a> | <a href="https://github.com/pwhynot/Friend-Finder" target="_blank">Git Hub Repo</a>

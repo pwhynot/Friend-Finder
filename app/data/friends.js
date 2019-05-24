@@ -1,4 +1,4 @@
-const friendsList = [
+const friends = [
     {
         name: "Bill Murray",
         photo: "https://www.space.ca/wp-content/uploads/2015/08/slime-bill-murray.jpg",
