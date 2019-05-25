@@ -165,7 +165,7 @@
               $.post(currentURL+"/api/friends", newFriends, function(data){
                   })
                   .done(function(data){
-                    $(".modal-body").append("<h1> New friend found!</h1>"+
+                    $(".modal-body").append("<h1> New matches found!</h1>"+
                         "<h3> "+data.name+ "</h3>"+
                         "<img src="+data.photo+ "width=300px>");
                        $("#modal").modal("toggle");
