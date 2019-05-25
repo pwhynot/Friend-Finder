@@ -113,8 +113,8 @@
                             </select>
         <h4><strong>Ouestion 10</strong></h4>
             <h5>Ghostbusters 2020 will make up for the mistake that is the 2016 Ghostbusters remake </h5>             
-                <select data-placeholder="" class="chosen-select" id="question10>
-                        <option value=""></option>
+                <select data-placeholder="" class="chosen-select" id="question10">
+                        <option value=""></option>                        
                         <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -144,35 +144,34 @@
     <br>
 	<div class="text-center">
         </div>
-  
+    <br>
+    <footer class="footer">
+        <div class="container">
+          <p><a href="/app/data/friends.js">API Friends List</a> | <a href="https://github.com/pwhynot/Friend-Finder" target="_blank">Git Hub Repo</a>
+        </div>
+      </footer>
+
       <script type="text/javascript">
           $("#submit").on("click", function(){
-              const newFriends = {
+              const newFriends = { 
                   "name": $("#name").val().trim(),
                   "photo": $("#photo").val().trim(),
                   "scores": [$("#question1").val(),$("#question2").val(),$("#question3").val(),$("#question4").val(),
-                  $("#question5").val(),$("#q6").val(),$("#q7").val(),$("#question8").val(),$("#question9").val(),
-                  $("#question10).val()]
-              };
+                  $("#question5").val(),$("#question6").val(),$("#question7").val(),$("#question8").val(),
+                  $("#question9").val(),$("#question10").val()]
+			};
 
               const currentURL = window.location.origin;
               $.post(currentURL+"/api/friends", newFriends, function(data){
-                  
-              })
+                  })
                   .done(function(data){
                     $(".modal-body").append("<h1> New friend found!</h1>"+
                         "<h3> "+data.name+ "</h3>"+
                         "<img src="+data.photo+ "width=300px>");
                        $("#modal").modal("toggle");
               });
-          })
+          });
       </script>
-
-    <footer class="footer">
-        <div class="container">
-          <p><a href="/app/data/friends.js">API Friends List</a> | <a href="https://github.com/pwhynot/Friend-Finder" target="_blank">Git Hub Repo</a>
-        </div>
-      </footer>
-  
+      
 </body>
 </html>
